@@ -1,7 +1,7 @@
 
 d = dict()
 
-f = open("Big5-ZhuYin.map","r",encoding="cp950")
+f = open("Big5-ZhuYin.map","r",encoding="big5-hkscs")
 line = f.readline()
 while line:
     tmp = line.split(" ")
@@ -22,7 +22,7 @@ while line:
 
 f.close()
 
-fw = open("ZhuYin-Big5.map","w",encoding="cp950")
+fw = open("ZhuYin-Big5.map","w",encoding="big5-hkscs")
 
 for key in d:
     print(key, end='', file=fw)
