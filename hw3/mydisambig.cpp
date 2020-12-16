@@ -58,14 +58,12 @@ vector<string> viterbi(vector<string> textvec, map<string, vector<string>>& map_
 		str_table.push_back(s);
 		route_table.push_back(route);
 	}
-
-	// the last word and find index
-	int idx;
+	
 	double max_prob = numeric_limits<double>::lowest();
-	for (int i = 0; i < str_table.back().size(); i++){
-		double p = getBigramProb(str_table.back()[i].c_str(), "", voc, lm) + prob_table.back()[i];
-		if (p > max_prob){
-			p = max_prob;
+	int idx;
+	for (int i = 0; i < prob_table.back().size();i++){
+		if (max_prob < prob_table.back()[i]){
+			max_prob = prob_table.back()[i];
 			idx = i;
 		}
 	}
